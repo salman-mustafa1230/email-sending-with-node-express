@@ -1,0 +1,8 @@
+apps:
+  - script : server-auth.js
+    name   : 'server-auth'
+    max_restarts : 3
+    min_uptime   : 100
+    error_file : "/opt/ejabberd-auth/server-auth-error.log"
+    out_file : "/opt/ejabberd-auth/server-auth.log"
+

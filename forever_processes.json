@@ -1,0 +1,8 @@
+[
+    {
+        "append": true,
+        "script": "server-auth.js",
+         "max":5,
+        "logFile": "/opt/nodejs/logs/server-auth.log"
+     }
+  ]
