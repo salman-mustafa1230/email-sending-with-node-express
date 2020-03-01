@@ -21,7 +21,7 @@ const helmet = require('helmet');
 
 var cors = require('cors');
 
-app.use(morgan('tiny', {
+app.use(morgan('common', {
   stream: fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' }),
   skip: () => {
     return false;
@@ -63,11 +63,10 @@ app.use(helmet());
 // security end
 app.use(expressValidator());
 app.use(cors());
-app.use(express.static(path.join(__dirname, './public/dist')));
 app.use('/api/v1', require('./app/routes')(app));
 
 app.get('*', function (req, res, next) {
-	res.sendFile(path.join(__dirname + '/./public/dist/index.html'));
+	res.status(404).json({message: "Page not found."});
 });
 
 app.use((req, res, next) => {  

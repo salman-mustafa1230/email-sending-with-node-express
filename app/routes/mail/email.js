@@ -1,6 +1,6 @@
 var express = require('express')
 var router = express.Router()
-var validationMiddleware = require('../middleware')();
+var validationMiddleware = require('../../middleware')();
 
 
 module.exports = (app, controllers) => {
