@@ -6,7 +6,6 @@ node_modules/
 package-lock.json
 dist
 logs/
-config/
 access.log
 error_file.log
 error_file.log.save

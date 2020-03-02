@@ -101,10 +101,18 @@ app.use((err, req, res, next) => {
       });
     } 
     else {
-      res.status(500).json({
-        message: 'There is some error, please try again later.',
-        errorCode : err.unknown
-      });
+      if ( !process.env.NODE_ENV ) {
+        res.status(500).json({
+          message: err,
+          errorCode : err.unknown
+        });
+      } else {
+        res.status(500).json({
+          message: 'There is some error, please try again later.',
+          errorCode : err.unknown
+        });
+      }
+      
     }
     logger.error(req, err);
     
